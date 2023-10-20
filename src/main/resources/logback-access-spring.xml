@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty scope="context" name="elasticsearch_uris" source="spring.elasticsearch.uris" defaultValue="http://localhost:9200"/>
+    <appender name="ELASTIC" class="com.internetitem.logback.elasticsearch.ElasticsearchAccessAppender">
+        <url>http://localhost:9200/_bulk</url>
+        <index>application-accesslog-%date{yyyy-MM-dd}</index>
+        <headers>
+            <header>
+                <name>Content-Type</name>
+                <value>application/json</value>
+            </header>
+        </headers>
+        <properties>
+            <property>
+                <name>contentLength</name>
+                <value>%b</value>
+            </property>
+            <property>
+                <name>remoteHost</name>
+                <value>%h</value>
+            </property>
+            <property>
+                <name>protocol</name>
+                <value>%H</value>
+            </property>
+            <property>
+                <name>referer</name>
+                <value>%i{Referer}</value>
+            </property>
+            <property>
+                <name>userAgent</name>
+                <value>%i{User-Agent}</value>
+            </property>
+            <property>
+                <name>requestMethod</name>
+                <value>%m</value>
+            </property>
+            <property>
+                <name>statusCode</name>
+                <value>%s</value>
+            </property>
+            <property>
+                <name>elapsedTime</name>
+                <value>%D</value>
+            </property>
+            <property>
+                <name>date</name>
+                <value>%date{yyyy-MM-dd'T'HH:mm:ss}</value>
+            </property>
+            <property>
+                <name>user</name>
+                <value>%user</value>
+            </property>
+            <property>
+                <name>queryString</name>
+                <value>%queryString</value>
+            </property>
+            <property>
+                <name>requestURI</name>
+                <value>%requestURI</value>
+            </property>
+        </properties>
+    </appender>
+
+    <appender-ref ref="ELASTIC" />
+</configuration>

@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.16'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '11'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.springframework.data', name: 'spring-data-elasticsearch', version: '4.4.0'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.17.3'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+//    implementation 'org.springframework.kafka:spring-kafka'
+//    testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+    // spring boot log to elastic search
+    implementation 'com.internetitem:logback-elasticsearch-appender:1.6'
+    implementation 'dev.akkinoc.spring.boot:logback-access-spring-boot-starter:3.2.1'
+
+    // https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder
+    //implementation group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '7.2'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

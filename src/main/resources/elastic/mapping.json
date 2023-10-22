@@ -1,10 +1,15 @@
 {
   "properties" : {
-    "name" : {"type" : "text", "analyzer" : "custom_analyzer"},
+    "name" : {"type" : "text", "analyzer" : "custom_analyzer",
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              }},
     "location" : {"type" : "text", "analyzer" : "korean"},
     "category" : {"type" : "text", "analyzer" : "korean"},
     "interest" : {"type" : "text", "analyzer" : "korean"},
-    "description" : {"type" : "text", "analyzer" : "korean"},
+    "description" : {"type" : "search_as_you_type", "analyzer" : "korean"},
     "profileImage" : {"type" : "keyword"},
     "communityUUID" : {"type" : "keyword"}
   }

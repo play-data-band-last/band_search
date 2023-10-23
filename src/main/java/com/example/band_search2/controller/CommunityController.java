@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/search")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class CommunityController {
     // 필드별 검색..
 

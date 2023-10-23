@@ -3,6 +3,7 @@ package com.example.band_search2.controller;
 import com.example.band_search2.domain.dto.RealTimeSearchKeyword;
 import com.example.band_search2.service.SearchService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/search")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class SearchController {
     private final SearchService customLogService;
 

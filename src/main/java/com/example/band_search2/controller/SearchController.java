@@ -1,6 +1,7 @@
 package com.example.band_search2.controller;
 
 import com.example.band_search2.domain.dto.RealTimeSearchKeyword;
+import com.example.band_search2.domain.dto.TypoSuggestKeyword;
 import com.example.band_search2.domain.entity.AccessLog;
 import com.example.band_search2.service.SearchService;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,10 @@ public class SearchController {
     @GetMapping("/suggestKeywords")
     public List<RealTimeSearchKeyword> getSuggestKeywords(@RequestParam String name) throws IOException {
         return customLogService.getSuggestKeywords(name);
+    }
+
+    @GetMapping("/typoSuggestKeywords")
+    public List<TypoSuggestKeyword> getTypoSuggest(@RequestParam String name) throws IOException {
+        return customLogService.getTypoSuggest(name);
     }
 }

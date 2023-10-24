@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CommunityService implements CommunityServiceImpl {
     private final CommunityRepository repository;
     @Override
@@ -22,7 +23,8 @@ public class CommunityService implements CommunityServiceImpl {
     }
     @Override
     public List<Community> searchByName(String name) {
-        return repository.findByName(name);
+        log.info("?name=" + name);
+        return repository.findAllByName(name);
     }
     @Override
     public List<Community> searchByLocation(String location) {

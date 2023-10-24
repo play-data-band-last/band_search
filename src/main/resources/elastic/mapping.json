@@ -1,10 +1,10 @@
 {
   "properties" : {
-    "name" : {"type" : "text", "analyzer" : "custom_analyzer"},
+    "name" : {"type" : "search_as_you_type", "analyzer" : "custom_analyzer"},
     "location" : {"type" : "text", "analyzer" : "korean"},
     "category" : {"type" : "text", "analyzer" : "korean"},
     "interest" : {"type" : "text", "analyzer" : "korean"},
-    "description" : {"type" : "text", "analyzer" : "korean"},
+    "description" : {"type" : "text"},
     "profileImage" : {"type" : "keyword"},
     "communityUUID" : {"type" : "keyword"}
   }

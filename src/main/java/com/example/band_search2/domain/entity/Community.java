@@ -19,7 +19,7 @@ public class Community {
     @Field(type = FieldType.Long)
     private Long ownerId;
 
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Search_As_You_Type)
     private String name;
 
     @Field(type = FieldType.Text)

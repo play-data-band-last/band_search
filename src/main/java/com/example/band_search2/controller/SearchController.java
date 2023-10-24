@@ -1,12 +1,10 @@
 package com.example.band_search2.controller;
 
 import com.example.band_search2.domain.dto.RealTimeSearchKeyword;
+import com.example.band_search2.domain.entity.AccessLog;
 import com.example.band_search2.service.SearchService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,5 +20,10 @@ public class SearchController {
     @GetMapping("/realTimeKeyword")
     public List<RealTimeSearchKeyword> getRealTimeKeywordTop5() throws IOException {
         return customLogService.getRecentTop5Keywords();
+    }
+
+    @GetMapping("/suggestKeywords")
+    public List<RealTimeSearchKeyword> getSuggestKeywords(@RequestParam String name) throws IOException {
+        return customLogService.getSuggestKeywords(name);
     }
 }

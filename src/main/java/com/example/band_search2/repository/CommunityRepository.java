@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CommunityRepository extends CrudRepository<Community, String> {
-    List<Community> findByName(String name);
+    List<Community> findAllByName(String name);
     List<Community> findByLocation(String location);
     List<Community> findByCategory(String category);
     List<Community> findByDescription(String description);

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface SearchServiceImpl {
     List<RealTimeSearchKeyword> getRecentTop5Keywords() throws IOException;
+
+    List<RealTimeSearchKeyword> getSuggestKeywords(String name) throws IOException;
 }

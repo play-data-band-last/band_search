@@ -1,0 +1,7 @@
+{
+  "properties" : {
+    "name" : {"type" : "search_as_you_type", "analyzer" : "custom_analyzer"}
+  }
+}
+
+

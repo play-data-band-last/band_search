@@ -11,5 +11,6 @@ public interface CommunityServiceImpl {
     List<Community> searchByCategory(String category);
     List<Community> searchByDescription(String description);
     List<Community> searchByCommunityUUID(String communityUUID);
+    List<Community> searchByCommunityNameAndDesc(String name, String desc);
 
 }

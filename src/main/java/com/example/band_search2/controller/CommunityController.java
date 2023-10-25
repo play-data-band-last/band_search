@@ -47,4 +47,9 @@ public class CommunityController {
     public List<Community> searchByCommunityUUID(@RequestParam String communityUUID) {
         return communityServiceImpl.searchByCommunityUUID(communityUUID);
     }
+
+    @GetMapping("/communitySearch")
+    public List<Community> searchByCommunityNameAndDesc(@RequestParam String name) {
+        return communityServiceImpl.searchByCommunityNameAndDesc(name, name);
+    }
 }

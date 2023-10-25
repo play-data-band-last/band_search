@@ -2,11 +2,14 @@
   "properties" : {
     "name" : {"type" : "search_as_you_type", "analyzer" : "custom_analyzer"},
     "location" : {"type" : "text", "analyzer" : "korean"},
+    "communityId" : {"type" : "long"},
     "category" : {"type" : "text", "analyzer" : "korean"},
     "interest" : {"type" : "text", "analyzer" : "korean"},
     "description" : {"type" : "text"},
     "profileImage" : {"type" : "keyword"},
-    "communityUUID" : {"type" : "keyword"}
+    "communityUUID" : {"type" : "keyword"},
+    "location" : {"type" : "geo_point"},
+    "date": {"type": "date"}
   }
 }
 

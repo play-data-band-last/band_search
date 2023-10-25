@@ -19,5 +19,4 @@ public class AccessLog {
     @Field(type = FieldType.Search_As_You_Type)
     private String name;
 
-
 }

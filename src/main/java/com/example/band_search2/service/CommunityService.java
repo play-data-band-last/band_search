@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -16,11 +19,13 @@ import java.util.logging.Logger;
 @RequiredArgsConstructor
 @Slf4j
 public class CommunityService implements CommunityServiceImpl {
-    private final CommunityRepository repository;
     @Override
     public void save(Community community) {
+        community.setDate(OffsetDateTime.now(ZoneOffset.ofHours(9)));
+        community.setLocation("41.12,-71.34");
         repository.save(community);
     }
+    private final CommunityRepository repository;
     @Override
     public List<Community> searchByName(String name) {
         log.info("?name=" + name);
@@ -41,6 +46,10 @@ public class CommunityService implements CommunityServiceImpl {
     @Override
     public List<Community> searchByCommunityUUID(String communityUUID) {
         return repository.findByCommunityUUID(communityUUID);
+    }
+    @Override
+    public List<Community> searchByCommunityNameAndDesc(String name, String desc) {
+        return repository.findByNameOrDescription(name, desc);
     }
 
 }

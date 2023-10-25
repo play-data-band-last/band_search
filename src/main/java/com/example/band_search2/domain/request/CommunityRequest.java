@@ -21,6 +21,7 @@ public class CommunityRequest {
     private String description;
     private String profileImage;
     private String communityUUID;
+    private Long communityId;
 
     public Community toEntity(){
         return Community.builder()
@@ -33,6 +34,7 @@ public class CommunityRequest {
                 .description(description)
                 .profileImage(profileImage)
                 .communityUUID(UUID.randomUUID().toString())
+                .communityId(communityId)
                 .build();
     }
 }

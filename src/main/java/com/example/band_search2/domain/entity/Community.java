@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 @Document(indexName = "communitys", useServerConfiguration = true)
 @Mapping(mappingPath = "elastic/mapping.json")
@@ -18,6 +22,9 @@ public class Community {
 
     @Field(type = FieldType.Long)
     private Long ownerId;
+
+    @Field(type = FieldType.Long)
+    private Long communityId;
 
     @Field(type = FieldType.Search_As_You_Type)
     private String name;
@@ -40,5 +47,6 @@ public class Community {
     @Field(type = FieldType.Keyword)
     private String communityUUID;
 
-
+    @Field(type = FieldType.Date, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+    private OffsetDateTime date;
 }

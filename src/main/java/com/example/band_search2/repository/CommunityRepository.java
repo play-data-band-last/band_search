@@ -11,4 +11,5 @@ public interface CommunityRepository extends CrudRepository<Community, String> {
     List<Community> findByCategory(String category);
     List<Community> findByDescription(String description);
     List<Community> findByCommunityUUID(String communityUUID);
+    List<Community> findByNameOrDescription(String name, String description);
 }

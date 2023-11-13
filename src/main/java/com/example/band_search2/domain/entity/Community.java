@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
-@Document(indexName = "communitys", useServerConfiguration = true)
+@Document(indexName = "sink.community.communities", useServerConfiguration = true)
 @Mapping(mappingPath = "elastic/mapping.json")
 @Setting(settingPath = "elastic/setting.json")
 public class Community {
@@ -47,6 +47,6 @@ public class Community {
     @Field(type = FieldType.Keyword)
     private String communityUUID;
 
-    @Field(type = FieldType.Date, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-    private OffsetDateTime date;
+//    @Field(type = FieldType.Date, format = DateFormat.custom, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+//    private OffsetDateTime date;
 }

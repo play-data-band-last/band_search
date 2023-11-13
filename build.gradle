@@ -35,9 +35,6 @@ dependencies {
     // spring boot log to elastic search
     implementation 'com.internetitem:logback-elasticsearch-appender:1.6'
     implementation 'dev.akkinoc.spring.boot:logback-access-spring-boot-starter:3.2.1'
-
-
-//     https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder
     implementation group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '7.2'
 
 

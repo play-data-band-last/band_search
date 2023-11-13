@@ -11,11 +11,6 @@ public class TopicConfig {
     public final static String communitySearchDLT = "communitySearch.DLT";
 
     @Bean
-    public NewTopic communitySearch() {
-        return new NewTopic(communitySearch, 1, (short)1);
-    }
-
-    @Bean
     public NewTopic topicDLT() {
         return new NewTopic(communitySearchDLT, 1, (short) 1);
     }

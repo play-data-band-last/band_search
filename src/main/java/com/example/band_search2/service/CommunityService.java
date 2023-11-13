@@ -21,9 +21,9 @@ import java.util.logging.Logger;
 public class CommunityService implements CommunityServiceImpl {
     @Override
     public void save(Community community) {
-        community.setDate(OffsetDateTime.now(ZoneOffset.ofHours(9)));
-        community.setLocation("41.12,-71.34");
-        repository.save(community);
+//        community.setDate(OffsetDateTime.now(ZoneOffset.ofHours(9)));
+//        community.setLocation("41.12,-71.34");
+//        repository.save(community);
     }
     private final CommunityRepository repository;
     @Override

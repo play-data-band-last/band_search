@@ -42,7 +42,7 @@ public class SearchService implements SearchServiceImpl {
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()
                 .should(QueryBuilders.matchQuery("pecial_flag_name", name))
                 .should(new FuzzyQueryBuilder("pecial_flag_name.keyword", name)
-                        .fuzziness(Fuzziness.TWO));
+                        .fuzziness(name.length() < 3 ? Fuzziness.AUTO : Fuzziness.TWO));
 
         // 검색 요청 생성
         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder().query(boolQueryBuilder);
@@ -100,7 +100,7 @@ public class SearchService implements SearchServiceImpl {
                 .field("name")
                 .field("name._2gram")
                 .field("name._3gram")
-                .fuzziness(name.length() < 2 ? "auto" : 2);
+                .fuzziness(name.length() < 3 ? "auto" : 2);
 
         // Bool 쿼리로 조합하고 min_score 추가
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()
@@ -139,7 +139,7 @@ public class SearchService implements SearchServiceImpl {
 
         for (Community community : allByName) {
             RealTimeSearchKeyword realTimeSearchKeyword = new RealTimeSearchKeyword(community.getName(), 1L);
-
+            System.out.println(realTimeSearchKeyword.getKey());
             suggestKeywords.add(realTimeSearchKeyword);
         }
 

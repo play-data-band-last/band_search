@@ -1,9 +1,8 @@
 package com.example.band_search2.controller;
 
 import com.example.band_search2.domain.entity.Community;
-import com.example.band_search2.domain.request.CommunityRequest;
+import com.example.band_search2.domain.request.CommunitySearchRequest;
 import com.example.band_search2.impl.CommunityServiceImpl;
-import com.example.band_search2.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +18,8 @@ public class CommunityController {
     private final CommunityServiceImpl communityServiceImpl;
 
     @PostMapping
-    public void save(@RequestBody CommunityRequest communityRequest) {
-        communityServiceImpl.save(communityRequest.toEntity());
+    public void save(@RequestBody CommunitySearchRequest communitySearchRequest) {
+        communityServiceImpl.save(communitySearchRequest.toEntity());
     }
 
     @GetMapping("/name")
@@ -52,4 +51,5 @@ public class CommunityController {
     public List<Community> searchByCommunityNameAndDesc(@RequestParam String name) {
         return communityServiceImpl.searchByCommunityNameAndDesc(name, name);
     }
+
 }

@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CommunityRequest {
+public class CommunitySearchRequest {
     private Long ownerId;
     private String name;
     private String location;

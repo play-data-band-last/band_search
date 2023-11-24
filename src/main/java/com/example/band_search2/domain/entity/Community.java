@@ -21,7 +21,7 @@ public class Community {
     private String id;
 
     @Field(type = FieldType.Long)
-    private Long ownerId;
+    private Long owner_id;
 
     @Field(type = FieldType.Long)
     private Long communityId;
@@ -42,7 +42,7 @@ public class Community {
     private String description;
 
     @Field(type = FieldType.Keyword)
-    private String profileImage;
+    private String profile_image;
 
     @Field(type = FieldType.Keyword)
     private String communityUUID;

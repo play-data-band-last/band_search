@@ -1,7 +1,7 @@
 
 spring:
   kafka:
-    bootstrap-servers: localhost:9093
+    bootstrap-servers: 34.121.154.179:9093
     consumer:
       auto-offset-reset: latest
       group-id: search

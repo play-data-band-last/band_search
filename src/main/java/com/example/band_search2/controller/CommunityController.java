@@ -24,7 +24,14 @@ public class CommunityController {
 
     @GetMapping("/name")
     public List<Community> searchByName(@RequestParam String name) {
-        return communityServiceImpl.searchByName(name);
+
+        List<Community> communities = communityServiceImpl.searchByName(name);
+
+        for (int i = 0; i < communities.size(); i++) {
+            System.out.println(communities.get(i));
+        }
+
+        return communities;
     }
 
     @GetMapping("/location")

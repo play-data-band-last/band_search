@@ -26,13 +26,13 @@ public class CommunitySearchRequest {
     public Community toEntity(){
         return Community.builder()
                 .id(UUID.randomUUID().toString())
-                .ownerId(ownerId)
+                .owner_id(ownerId)
                 .name(name)
                 .location(location)
                 .category(category)
                 .interest(interest)
                 .description(description)
-                .profileImage(profileImage)
+                .profile_image(profileImage)
                 .communityUUID(UUID.randomUUID().toString())
                 .communityId(communityId)
                 .build();

@@ -19,7 +19,7 @@ public class Config {
     public RestHighLevelClient client() {
         // http port 와 통신할 주소
         ClientConfiguration clientConfiguration = ClientConfiguration.builder()
-                .connectedTo("localhost:9200")
+                .connectedTo("35.232.152.73:9200")
                 .build();
 
         return RestClients.create(clientConfiguration).rest();
